@@ -22,7 +22,7 @@ class CronJobRepository extends EntityRepository
         return $this->getEntityManager()
                     ->createQuery("SELECT job FROM ColourStreamCronBundle:CronJob job
                                               WHERE job.nextRun <= :curTime
-                                              AND job.enabled = 1")
+                                              AND job.enabled = '1'")
                     ->setParameter('curTime', new \DateTime())
                     ->getResult();
     }
